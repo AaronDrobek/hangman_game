@@ -1,0 +1,15 @@
+<h1>Lets Play</h1>
+
+<form class="" action="/words" method="post">
+  <input autofocus ="autofocus" type="text" name="letter" value="">
+  <button type="submit" name="button">submit</button>
+  <h4>Guess a letter</h4>
+
+
+
+
+  {{#errors}}<br>{{.}}<br>{{/errors}}
+
+</form>
+<h2>{{underscores}}</h2>
+ <h1>{{#words}}{{text}}{{/words}}</h1> 
