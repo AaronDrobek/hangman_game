@@ -5,12 +5,21 @@
   <button type="submit" name="button">submit</button>
   <h4>Guess a letter</h4>
 
-
-
-
-  {{#errors}}<br>{{.}}<br>{{/errors}}
-
 </form>
+
+
+
+  {{#errors}}
+  <br>
+  {{.}}
+  <br>
+  {{/errors}}
+<h3> Remaining Guesses</h3>
+{{turns}}
 <h2>{{underscores}}</h2>
- <h1>{{#words}}{{text}}{{/words}}</h1>
+ <h1>
+   {{#guesses}}
+   {{.}}
+   {{/guesses}}
+ </h1>
 <h2>Guessed Letters </h2>{{guess}}

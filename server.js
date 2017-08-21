@@ -1,6 +1,5 @@
 const express          = require("express");
 const path             = require("path");
-const fs               = require("fs");
 const mustacheExpress  = require("mustache-express");
 const bodyParser       = require("body-parser");
 const routes           = require("./routes/index");
@@ -10,6 +9,8 @@ const session          = require("express-session");
 const parseurl         = require("parseurl");
 const readline         = require("readline");
 const app = express();
+
+
 
 app.use(express.static("public"));
 
