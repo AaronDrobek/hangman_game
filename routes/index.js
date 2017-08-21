@@ -4,24 +4,29 @@ const router = express.Router();
 
 let randomArray = ["bonnet", "chaos", "curious", "rent", "dress", "coffee", "frustration"];
 let chooseRandom = randomArray[Math.floor (Math.random() * randomArray.length)];
-console.log("random word", chooseRandom);
+console.log("random word", randomArray);
 
 let count = 0;
 let underscores;
 let guessArray = [];
-
+let playerGuess = [];
 
 
 router.get("/", function(req, res) {
+  req.session.guesses = 8;
+  req.session.token = "78687hksdhjkfhkjahkjlh";
+
   function newGame (){
     for (var i = 0; i < chooseRandom.length; i++) {
       guessArray[i] = "_ ";
     }
     underscores = guessArray.join(" ");
-    
+  }
+newGame();
 
 
-  console.log(req.session);
+  // res.render("game_play", guess)
+  console.log(req.session.token);
   res.render("game_play", {underscores: underscores});
 });
 
@@ -34,7 +39,7 @@ router.get("/lose", function(req, res) {
 });
 
 router.post("/words", function(req, res){
-  let letter = body.value
+
 
 
   req.checkBody("letter", '*Please Enter 1 Letter Per Turn*').isLength({min:1, max:1});
@@ -51,7 +56,6 @@ router.post("/words", function(req, res){
         let obj = {
       errors: messages,
       }
-      req.session.token = "78687hksdhjkfhkjahkjlh"
       console.log(req.session);
 
       console.log(obj.errors, "these are errors");
@@ -67,7 +71,12 @@ router.post("/retry", function(req, res){
   res.redirect('/');
 })
 
-
+router.post("/words", function(req, res){
+  req.body.value += playerGuess;
+  guess = req.body.value
+  console.log("this is the guessed letter", playerGuess);
+  res.render("game_play", guess)
+})
 
 
 
