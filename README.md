@@ -1,0 +1,2 @@
+# hangman_game
+Still working on getting deployed. A word guessing game built using node express. To launch on local host, clone into terminal. $node server.js (may have to npm install). I built this app pretty early on in my programming development. I ran into a lot of challenges constructing the logic for this game. There isn't very much css due to the amount of time spent building out the funcitonality of the app. I plan to some day come back to this app and give it a facelift. 
